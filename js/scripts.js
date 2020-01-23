@@ -9,14 +9,27 @@ function validateForm(e){
     console.log('password: ' + validatePassword());
 
     if (validateUsername() && validateEmail() && validatePassword()) {
-        var _newUser = getUserName();   
+        var _newUser = getUserName();
+        var _email = getEmail();
+        var _password = getPassword();
         // add code to update registeredUsers array with new user and call render function
         // TODO
+        // array with new user and call render function
+        registeredUsers.push(_newUser);
+        registeredUsers.push(_email);
+        registeredUsers.push(_password);
+       
         document.registration.reset(); // reset form input fields
+        renderRegisteredUsers(); // rendering funtion, getting all registered users
+    
+        if (renderRegisteredUsers > 3) {
+        renderRegisteredUsers.shift();
+        }
     }
 }
 
 function renderRegisteredUsers() {
+    document.getElementById("registered-users").innerHTML ="";
     registeredUsers.forEach(function(registeredUser){
         var _newUser = document.createElement('li'); 
         _newUser.innerHTML = registeredUser;
@@ -109,12 +122,27 @@ function getUserName() {
 
 function getEmail() {
     // TODO
+    if (typeof(document.registration.email.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.email.value;
+    }   
 }
 
 function getPassword() {
     // TODO
+    if (typeof(document.registration.password.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.password.value;
+    }   
 }
 
 function getConfirmPassword() {
     // TODO
+    if (typeof(document.registration.password_confirm.value) === 'undefined') {
+        return '';
+    } else {
+        return document.registration.password_confirm.value;
+    }   
 }
