@@ -23,8 +23,8 @@ function validateForm(e){
         document.registration.reset(); // reset form input fields
         renderRegisteredUsers(); // rendering funtion, getting all registered users
     
-        if (renderRegisteredUsers > 3) {
-        renderRegisteredUsers.shift();
+        if (registeredUsers.length > 3) {
+            registeredUsers.shift();
         }
     }
 }
