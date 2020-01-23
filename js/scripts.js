@@ -15,10 +15,11 @@ function validateForm(e){
         // add code to update registeredUsers array with new user and call render function
         // TODO
         // array with new user and call render function
-        registeredUsers.push(_newUser);
-        registeredUsers.push(_email);
-        registeredUsers.push(_password);
-       
+        registeredUsers.push({
+            name: _newUser,
+            email: _email,
+            password: _password,
+        });
         document.registration.reset(); // reset form input fields
         renderRegisteredUsers(); // rendering funtion, getting all registered users
     
@@ -32,8 +33,11 @@ function renderRegisteredUsers() {
     document.getElementById("registered-users").innerHTML ="";
     registeredUsers.forEach(function(registeredUser){
         var _newUser = document.createElement('li'); 
-        _newUser.innerHTML = registeredUser;
+        _newUser.innerHTML = registeredUser.name;
         document.getElementById('registered-users').appendChild(_newUser);
+        var _email = document.createElement('li'); 
+        _email.innerHTML = registeredUser.email;
+        document.getElementById('registered-users').appendChild(_email);
     });
 }
 
