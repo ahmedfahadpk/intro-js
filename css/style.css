@@ -586,6 +586,13 @@ em {
     padding: 10px 0;
 }
 
+.weatherAPI-btn {
+    right: 270px;
+    color: white;
+    width: 450px;
+    padding: 10px 0;
+}
+
 .fixed-button:hover {
     cursor: pointer;
     background-color: #333;

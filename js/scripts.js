@@ -34,6 +34,26 @@ jQuery(document).ready(function () {
 
     $('.print-page-btn').click(printThisPage);
 
+    function weatherAPI() {
+        window.open('//api.openweathermap.org/data/2.5/weather?q=helsinki&appid=28e21cb6ea06ad686f32403a592b8398');
+    };
+
+    $('.weatherAPI-btn').click(weatherAPI); 
+    
+    $.ajax({
+        url: '//api.openweathermap.org/data/2.5/weather?q=helsinki&APIKEY=28e21cb6ea06ad686f32403a592b8398',
+        }).done(function(resp) {
+            $('.weatherAPI-btn').text(`helsinki today is ${resp.main.temp} and it's feels like ${resp.main.feels_like}`);
+            // alert(resp);
+
+            // console.log(resp);
+    });
+
+    // console.log(resp.main.temp);
+    
+
+    
+
     $('.person-card p').each(function() {
         var html = $(this).html();
         var word = html.substr(0, html.indexOf(' '));
