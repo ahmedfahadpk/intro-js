@@ -26,15 +26,27 @@ function validateForm(e){
 
 function getUserDataObj() {
     return {
-        userName: getUserName(),
-        firstName: getFirstName(),
-        lastName: getLastName(),
-        email: getEmail(),
-        phoneNumber: getPhoneNumber(),
-        password: getPassword(),
-        confirmPassword: getConfirmPassword()
+        userName: get('username'),
+        firstName: get('firstname'),
+        lastName: get('lastname'),
+        email: get('email'),
+        phoneNumber: get('phonenumber'),
+        password: get('password'),
+        confirmPassword: get('password_confirm')
     };
 }
+
+// function getUserDataObj() {
+//     return {
+//         userName: getUserName(),
+//         firstName: getFirstName(),
+//         lastName: getLastName(),
+//         email: getEmail(),
+//         phoneNumber: getPhoneNumber(),
+//         password: getPassword(),
+//         confirmPassword: getConfirmPassword()
+//     };
+// }
 
 function renderRegisteredUsers() {
     document.getElementById('registered-users').innerHTML = '';
@@ -51,7 +63,7 @@ function renderRegisteredUsers() {
  * @returns [Boolean] true when valid, false otherwise
  */
 function validateUsername(){
-    var _userName = getUserName();
+    var _userName = get('username');
     
     return !checkSpace(_userName);
 }
@@ -61,7 +73,7 @@ function validateUsername(){
  * @returns [Boolean] true when valid, false otherwise
  */
 function validateFirstName(){
-    var _firstName = getFirstName();
+    var _firstName = get('firstname');
     
     return (_firstName !== '');
 }
@@ -71,7 +83,7 @@ function validateFirstName(){
  * @returns [Boolean] true when valid, false otherwise
  */
 function validateLastName(){
-    var _lastName = getLastName();
+    var _lastName = get('lastname');
     
     return (_lastName !== '');
 }
@@ -81,7 +93,7 @@ function validateLastName(){
  * @returns [Boolean] true when valid, false otherwise
  */
 function validatePhoneNumber(){
-    var _phoneNumber = getPhoneNumber();
+    var _phoneNumber = get('phonenumber');
     
     return (!isNaN(_phoneNumber));
 }
@@ -91,7 +103,7 @@ function validatePhoneNumber(){
  * @returns [Boolean] true when valid, false otherwise
  */
 function validateEmail(){
-    var _email = getEmail();
+    var _email = get('email');
 
     if (checkSpace(_email) === true) {
         return false;
@@ -124,8 +136,8 @@ function validateEmail(){
  * @returns [Boolean] true when valid, false otherwise
  */
 function validatePassword() {
-    var _password = getPassword();
-    var _confirmPassword = getConfirmPassword();
+    var _password = get('password');
+    var _confirmPassword = get('password_confirm');
 
     if (_password !== _confirmPassword) {
         return false;
@@ -148,6 +160,12 @@ function checkSpace(sample) {
     return sample === '' || sample.indexOf(' ') > -1;
 }
 
+function get(param) {
+    var _value = document.registration[param].value;
+    return typeof(_value) === 'undefined' ? '' : _value;
+}
+
+
 /**
  * this function looks under the form with name "registration"
  * look under the "username" input field and returns the value of it
@@ -155,58 +173,58 @@ function checkSpace(sample) {
  * 
  * @returns [Boolean] true when valid, false otherwise
  */
-function getUserName() {
-    if (typeof(document.registration.username.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.username.value;
-    }   
-}
+// function getUserName() {
+//     if (typeof(document.registration.username.value) === 'undefined') {
+//         return '';
+//     } else {
+//         return document.registration.username.value;
+//     }   
+// }
 
-function getFirstName() {
-    if (typeof(document.registration.firstname.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.firstname.value;
-    }   
-}
+// function getFirstName() {
+//     if (typeof(document.registration.firstname.value) === 'undefined') {
+//         return '';
+//     } else {
+//         return document.registration.firstname.value;
+//     }   
+// }
 
-function getLastName() {
-    if (typeof(document.registration.lastname.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.lastname.value;
-    }   
-}
+// function getLastName() {
+//     if (typeof(document.registration.lastname.value) === 'undefined') {
+//         return '';
+//     } else {
+//         return document.registration.lastname.value;
+//     }   
+// }
 
-function getPhoneNumber() {
-    if (typeof(document.registration.phonenumber.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.phonenumber.value;
-    }   
-}
+// function getPhoneNumber() {
+//     if (typeof(document.registration.phonenumber.value) === 'undefined') {
+//         return '';
+//     } else {
+//         return document.registration.phonenumber.value;
+//     }   
+// }
 
-function getEmail() {
-    if (typeof(document.registration.email.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.email.value;
-    }   
-}
+// function getEmail() {
+//     if (typeof(document.registration.email.value) === 'undefined') {
+//         return '';
+//     } else {
+//         return document.registration.email.value;
+//     }   
+// }
 
-function getPassword() {
-    if (typeof(document.registration.password.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.password.value;
-    }   
-}
+// function getPassword() {
+//     if (typeof(document.registration.password.value) === 'undefined') {
+//         return '';
+//     } else {
+//         return document.registration.password.value;
+//     }   
+// }
 
-function getConfirmPassword() {
-    if (typeof(document.registration.password_confirm.value) === 'undefined') {
-        return '';
-    } else {
-        return document.registration.password_confirm.value;
-    }   
-}
+// function getConfirmPassword() {
+//     if (typeof(document.registration.password_confirm.value) === 'undefined') {
+//         return '';
+//     } else {
+//         return document.registration.password_confirm.value;
+//     }   
+// }
