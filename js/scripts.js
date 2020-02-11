@@ -44,3 +44,32 @@ function doAjaxCall(searchTerm) {
         handleResponse
     );
 }
+
+// $(document).ready(function(){
+//     $('[name="searchbutton"]').click(function(){
+//         alert(document.searchbar.searchquery.value);
+//     });
+// });
+
+$(document).ready(function(){
+    $('[name="searchbutton"]').click(function(){
+        console.log('User has entered:' + document.searchbar.searchquery.value);
+
+        $.ajax({
+            url: '//api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?',
+            dataType: 'json',
+            data: {
+                tags: document.searchbar.searchquery.value,
+                tagmode: 'any',
+                format: 'json'
+            }
+        }).done(function(data) {
+            console.log(data);
+
+            $('#imageWrapper').append('<img src=' + data.items[0].media.m + '></img>');
+            
+        });
+    });
+});
+
+

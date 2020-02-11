@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <title>Flickr gallery page</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -16,9 +17,18 @@
 </head>
 
 <body>
+    <form name="searchbar">
+        <input type="text" placeholder="Search..." name="searchquery" required>
+        <input type="button" name="searchbutton" value="Search">
+    </form>
+    <!-- <script>
+        $('[name="searchbutton"]').click(function(){
+            alert(document.searchbar.searchquery.value);
+        });
+    </script> -->
     <div class="container">
         <div id="imageWrapper" class="row">
-            <div class="col-md-3 col-sm-4 col-xs-6">
+            <!-- <div class="col-md-3 col-sm-4 col-xs-6">
                 <img class="img-responsive" src="https://live.staticflickr.com/65535/49514452178_12f349345d_m.jpg">
                 </img>
             </div>
@@ -34,7 +44,7 @@
                 <img class="img-responsive" src="https://live.staticflickr.com/65535/49514452433_9b566c48aa_m.jpg">
                 </img>
             </div>
-        </div>
+        </div> -->
     </div>
 </body>
 
