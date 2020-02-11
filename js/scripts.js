@@ -70,7 +70,12 @@ $(document).ready(function(){
             // $('#imageWrapper').append('<img src=' + data.items[0].media.m + '></img>');
 
             data.items.forEach(function(item){
-                $('#imageWrapper').append('<img src=' + item.media.m + '></img>');
+                // $('#imageWrapper').append('<img src=' + item.media.m + '></img>');
+                $('#imageWrapper').append(`
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                    <img class="img-responsive" src="${item.media.m}">
+                    </img>
+                `);
             });
         });
     });
